@@ -1,4 +1,5 @@
 YiiPredisCache
 ==============
 
-Yii framework CCache implementation for Redis backend using Predis php client library.
+Yii framework [CCache](http://www.yiiframework.com/doc/api/1.1/CCache) implementation for [Redis](http://redis.io/) backend using [Predis](https://github.com/nrk/predis) php client library.
+
