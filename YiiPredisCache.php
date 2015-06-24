@@ -217,4 +217,15 @@ class YiiPredisCache extends CCache
         return ($ret === true);
     }
 
+    /**
+     * Returns array of object properties that should be serialised
+     * @return array
+     */
+    public function __sleep()
+    {
+        $ret = get_object_vars($this);
+        unset($ret['client']);
+        return array_keys($ret);
+    }
+
 }

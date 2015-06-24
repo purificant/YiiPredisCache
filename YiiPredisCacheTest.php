@@ -238,4 +238,19 @@ class YiiPredisCacheTest extends CTestCase
         $this->assertEquals($value, $this->object[$key]);
     }
 
+    /**
+     * @covers RedisCache::__sleep
+     */
+    public function test__sleep()
+    {
+        $object = unserialize(serialize($this->object));
+        $this->assertEquals($this->object, $object);
+
+        $this->assertTrue($object->getClient() instanceof Predis\Client);
+
+        $ret = $this->object->__sleep();
+        $this->assertTrue(is_array($ret));
+        $this->assertNotEmpty($ret);
+    }
+
 }
